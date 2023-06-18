@@ -1,0 +1,20 @@
+---
+interface Props {
+  title?: string
+};
+console.log(Astro.url.pathname.split("/", 1)[0]);
+
+const { title } = Astro.props;
+---
+<html lang={Astro.url.pathname.split("/", 1)[0]}>
+	<head>
+		<meta charset="utf-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>RT Discord Bot{title ? ` - ${title}` : ""}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
